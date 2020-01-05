@@ -1,0 +1,76 @@
+body {
+    .home {
+        @extend %fa-icon;
+        @extend .fas;
+      
+        &:before {
+          content: fa-content($fa-var-home);
+        }
+      }
+      
+      .about {
+        @extend %fa-icon;
+        @extend .fas;
+      
+        &:before {
+          content: fa-content($fa-var-user-ninja);
+        }
+      }  
+      
+      .skill {
+        @extend %fa-icon;
+        @extend .fas;
+      
+        &:before {
+          content: fa-content($fa-var-scroll);
+        }
+      }     
+      .work {
+        @extend %fa-icon;
+        @extend .fas;
+      
+        &:before {
+          content: fa-content($fa-var-briefcase);
+        }
+      } 
+      .contact {
+        @extend %fa-icon;
+        @extend .fas;
+      
+        &:before {
+          content: fa-content($fa-var-comment-dots);
+        }
+      }  
+      .fb-icon {
+        @extend %fa-icon;
+        @extend .fas;
+      
+        &:before {
+          content: fa-content($fa-var-facebook);
+        }
+      }  
+      .gmail-icon {
+        @extend %fa-icon;
+        @extend .fas;
+      
+        &:before {
+          content: fa-content($fa-var-google-plus);
+        }
+      }  
+      .linked-in-icon {
+        @extend %fa-icon;
+        @extend .fas;
+      
+        &:before {
+          content: fa-content($fa-var-linkedin);
+        }
+      }      
+      .skype-icon {
+        @extend %fa-icon;
+        @extend .fas;
+      
+        &:before {
+          content: fa-content($fa-var-skype);
+        }
+      }                           
+}

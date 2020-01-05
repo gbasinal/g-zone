@@ -1,0 +1,31 @@
+.overlay-container {
+    background-color: black;
+    height: 100vh;
+    &--left {
+        width: 0%;
+    }
+    &--right {
+        width: 0%;
+    }
+    &--content {
+        .overlay-message-wrapper {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            
+        }
+        .overlay-bar-wrapper {
+            position: absolute;
+            top: 55%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            width: 24.7em;
+            .overlay-bar {
+                width: 0;
+                background-color: $dGray;
+                height: 5px;
+            }
+        }
+    }
+}

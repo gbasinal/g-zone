@@ -1,0 +1,31 @@
+body {
+    h1 {
+		font-family: 'Kanit', sans-serif;
+		font-weight: 800;
+		font-size: 5em;	
+    }
+    h2 {
+		font-family: 'Kanit', sans-serif;
+		font-weight: 600;
+		font-size: 3em;	
+    }
+    h3 {
+		font-family: 'Kanit', sans-serif;
+		font-weight: 500;
+		font-size: 2em;	
+    }
+    p, span {
+        font-family: 'Darker Grotesque', sans-serif;
+        font-weight: 400;
+        font-size: 1.2em;
+        color: white;
+    }
+    
+    a{
+        font-family: 'Darker Grotesque', sans-serif;
+        font-weight: 400;
+        font-size: 1.2em;
+        color: white;
+        text-decoration: none;
+    }
+}

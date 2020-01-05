@@ -1,0 +1,20 @@
+.btn-container {
+    .btn {
+        padding: .1em .5em .3em;
+        background-color: transparent;
+        color: white;
+        letter-spacing: .05em;
+        
+    }
+    .btn-orange {
+        border: 1.5px solid #ec4d37;
+        color: white;
+        cursor: pointer;
+        &:hover {
+            background-color: #ec4d37;
+            color: $dGray;
+            
+            border-color: $dGray;
+        }
+    }
+}

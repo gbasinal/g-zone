@@ -1,0 +1,8 @@
+@function toEM($size) {
+  $remSize: $size / 12;
+  @return $remSize * 1em;
+}
+@mixin em($size) {
+  font-size: $size;
+  font-size: toEM($size);
+}

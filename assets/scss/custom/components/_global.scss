@@ -1,0 +1,56 @@
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body{
+	font-size: 1.04vw;
+	background-color: $dGray;
+
+	h1{
+		font-family: 'Kanit', sans-serif;
+		font-weight: 800;
+		font-size: 5em;	
+	}
+
+	.particles{
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+	}
+	.d-flex {
+		display: flex;
+	}
+	.flex-row {
+		flex-direction: row !important;
+	}
+	.flex-column {
+		flex-direction: column !important;
+	}
+	.m-auto {
+		margin: auto;
+	}
+	.justify-flex-end {
+		justify-content: flex-end;
+	}
+	.align-flex-end {
+		align-items: flex-end;
+	}
+	.justify-space-between {
+		justify-content: space-between;
+	}
+
+	.code-body-style{
+		position: absolute;
+		&--top {
+			top: 0;
+			padding-top: 2em;
+		}
+		&--bottom {
+			bottom: 0;
+			padding-bottom: 2em;
+		}
+	}
+}

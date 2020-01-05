@@ -1,0 +1,26 @@
+@mixin box-shadow($top, $left, $blur, $color, $inset: false) {
+  @if $inset {
+    -webkit-box-shadow:inset $top $left $blur $color;
+    -moz-box-shadow:inset $top $left $blur $color;
+    box-shadow:inset $top $left $blur $color;
+  } @else {
+    -webkit-box-shadow: $top $left $blur $color;
+    -moz-box-shadow: $top $left $blur $color;
+    box-shadow: $top $left $blur $color;
+  }
+}
+@mixin multi-box-shadow ($string) {
+  -webkit-box-shadow: $string;
+  -moz-box-shadow:    $string;
+  box-shadow:         $string;
+}
+// usage
+// .stack {
+//    @include box-shadow((
+//         1px 1px   0 rgba(0,   0,   0,   0.100),
+//         3px 3px   0 rgba(255, 255, 255, 1.0),
+//         4px 4px   0 rgba(0,   0,   0,   0.125)
+//    ));
+// }
+
+// @include box-shadow(( whatever, you, want, just, one, param ));
