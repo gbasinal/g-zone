@@ -1,6 +1,9 @@
 .section{
 	position: relative;
+	// transform-origin: center;
 	&--overlay {
+		background: black;
+		width: 100%;
 		display:none;
 		position: absolute;
 		top: 0;
@@ -41,6 +44,7 @@
 				cursor: pointer;
 				h1 {
 					font-size: 3em;
+					width: 100%;
 					span {
 						color: $red;
 						font-weight: 400;

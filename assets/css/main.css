@@ -4840,6 +4840,10 @@ body {
     body .code-body-style--bottom {
       bottom: 0;
       padding-bottom: 2em; }
+  body sup {
+    font-size: 50%;
+    margin-left: 15px;
+    padding-right: 5px; }
 
 .header-container {
   display: -webkit-box;
@@ -4993,6 +4997,8 @@ body a {
 .section {
   position: relative; }
   .section--overlay {
+    background: black;
+    width: 100%;
     display: none;
     position: absolute;
     top: 0;
@@ -5029,7 +5035,8 @@ body a {
         margin-top: -5em;
         cursor: pointer; }
         .section .main-pages-container .skills-animation-container .skills-animation-wrapper h1 {
-          font-size: 3em; }
+          font-size: 3em;
+          width: 100%; }
           .section .main-pages-container .skills-animation-container .skills-animation-wrapper h1 span {
             color: #ec4d37;
             font-weight: 400;
@@ -5091,29 +5098,25 @@ body a {
 
 .overlay-container {
   background-color: black;
-  height: 100vh; }
+  height: 100vh;
+  position: relative;
+  width: 50%; }
   .overlay-container--left {
     width: 0%; }
   .overlay-container--right {
     width: 0%; }
-  .overlay-container--content .overlay-message-wrapper {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    -webkit-transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%); }
   .overlay-container--content .overlay-bar-wrapper {
-    position: absolute;
-    top: 55%;
-    left: 50%;
-    -webkit-transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
     width: 24.7em; }
     .overlay-container--content .overlay-bar-wrapper .overlay-bar {
       width: 0;
       background-color: #252627;
       height: 5px; }
+  .overlay-container .overlay-wrapper {
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    width: 24.7em; }
 
 /*# sourceMappingURL=main.css.map */

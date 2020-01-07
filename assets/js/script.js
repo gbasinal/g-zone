@@ -157,6 +157,7 @@ var app = {
           
           let sectionName = $('.section--'+section+'-page')
           console.log(sectionName)
+          TweenMax.set(sectionName,{transformOrigin:"center"})
           TweenMax.to(sectionName, .3, {scale:.8});
           TweenMax.to(sectionName, .8, {opacity: 0})
           setTimeout(function(){
@@ -179,7 +180,8 @@ var app = {
           sectionOverlay.show()
 
           if(action==='in'){
-            sectionOverlay.show(200)
+            // sectionOverlay.show(200)
+            TweenMax.to(sectionOverlay,.2,{opacity: 1, display: "block"})
             tl.to([
               left,right
             ],.5,{width:'50%'})
@@ -189,12 +191,12 @@ var app = {
               {
                 in: {
                  effect: 'tada',
-                 delayScale: 1
+                 delayScale: .5
                 },
                 out: {
                   effect : 'fadeOut',
                   shuffle: true,
-                  delayScale: 1
+                  delayScale: .5
                 },
                 inEffects: [
                   'fade'
@@ -205,28 +207,40 @@ var app = {
               }
             );
             
-            $('.tilt').on('inAnimationBegin.tlt', function(){
-              app.uiCustom.loadingBarAnimation()
-            })
+            
+              app.uiCustom.loadingBarAnimation("open")
+            
 
             //   .to(message, .3, {opacity: 1})
 
           }else {
             TweenMax.to(left,.3,{width : 0})
             TweenMax.to(right,.3,{width : 0})
-            sectionOverlay.hide(200)
+          
+            app.uiCustom.loadingBarAnimation("close")
+          
+            
+            TweenMax.to(sectionOverlay,.3,{opacity: 0, display:"none"})
+            // sectionOverlay.hide(50)
           }
 
           
           
         },
-        loadingBarAnimation(){
+        loadingBarAnimation(status){
           let bar = $('.overlay-bar');
-          TweenMax.to(bar, 2, {width: '100%'})
+
+          if(status === "open"){
+            TweenMax.to(bar, 2, {width: '100%'})
+          }else {
+            TweenMax.to(bar, 0, {width: 0})
+          }
+          
         },
         skillsAnimation(){
           let content =  $('.skills-content-container')
           let anim = $('.skills-animation-wrapper h1')
+          var animWrapper = $('.skills-animation-wrapper')
           let header = $('.page-header')
           let tl2 = new TimelineMax({repeat:-1, yoyo:false, repeatDelay:0});
           let tl = app.uiCustom.defaults.tl;
@@ -237,20 +251,20 @@ var app = {
           tl2.to(anim, 0.8, {text:{value:"back end development", newClass : "back-end", oldClass:"front-end"}, padSpace:true,  ease:Linear.easeNone,delay:2});
           tl2.to(anim, 0.8, {text:{value:"content management systems",newClass : "cms", oldClass:"cms"}, padSpace:true, ease:Linear.easeNone,delay:2});
           tl2.to(anim, 0.8, {text:{value:"front end development",newClass : "front-end", oldClass:"front-end"}, padSpace:true, ease:Linear.easeNone,delay:2});
-          
-          anim.on('mouseover', function(e){
+
+          animWrapper.hover(function(e){
             tl.to([header,content], .5 , {scale: .8, opacity: .5, transformOrigin: '50%'})
               .to(anim, .5 , {scale:1.1},'-=.5')
 
             tl2.pause()
-            console.log(e.target.className)
+            
+            $(".skills-animation-wrapper h1 span").append("<sup><i class='far fa-times-circle'></i></sup>")
             if(e.target.className === "front-end"){
               $('.skills-fe-container').show(200)
               app.uiCustom.skillFrontEndAnimation('front-end',null, "in");
             }
             
-          })
-          anim.on('mouseout', function(){
+          },function(){
             let items = $(this).attr('data-items');
             let level = $(this).attr('data-level');
             // tl.to([header,content], .5 , {scale:1, opacity: 1, transformOrigin: '50%'})
@@ -259,7 +273,19 @@ var app = {
             // $('.skills-fe-container').hide(200)
             // TweenMax.to($('.fe-items h3'), 1 , {opacity: 0})
             app.uiCustom.skillFrontEndAnimation('front-end', null, null)
+            $(".skills-animation-wrapper h1 span sup").remove();
           })
+          // animWrapper.on('mouseout', function(){
+          //   let items = $(this).attr('data-items');
+          //   let level = $(this).attr('data-level');
+          //   // tl.to([header,content], .5 , {scale:1, opacity: 1, transformOrigin: '50%'})
+          //   //   .to(anim, .5 , {scale:1},'-=.5')
+          //   // tl2.resume()
+          //   // $('.skills-fe-container').hide(200)
+          //   // TweenMax.to($('.fe-items h3'), 1 , {opacity: 0})
+          //   app.uiCustom.skillFrontEndAnimation('front-end', null, null)
+          //   $(".skills-animation-wrapper h1 span sup").remove();
+          // })
 
           feItems.on('mouseover',function(e){
             let items = $(this).attr('data-items');
@@ -281,6 +307,10 @@ var app = {
 
           })
 
+          $(".skills-animation-wrapper h1").on("click", function(){
+            console.log("close")
+            app.uiCustom.skillFrontEndAnimation('front-end',null, "out");
+          })
 
 
         },
@@ -296,6 +326,7 @@ var app = {
           let lvl = level;
           let tl = new TimelineMax();
 
+          
           
           let levels = [
             "Tsk, More practice required",
